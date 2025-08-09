@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<clickhouse>
+    <!-- Performance settings for development -->
+    <max_memory_usage>1073741824</max_memory_usage> <!-- 1GB -->
+    <max_memory_usage_for_user>1073741824</max_memory_usage_for_user>
+    
+    <!-- Logging -->
+    <logger>
+        <level>warning</level>
+        <log>/var/log/clickhouse-server/clickhouse-server.log</log>
+        <errorlog>/var/log/clickhouse-server/clickhouse-server.err.log</errorlog>
+        <size>1000M</size>
+        <count>10</count>
+    </logger>
+    
+    <!-- HTTP settings -->
+    <http_port>8123</http_port>
+    <http_default_response_type>text/html; charset=UTF-8</http_default_response_type>
+    
+    <!-- TCP settings -->
+    <tcp_port>9000</tcp_port>
+    <tcp_port_secure>9440</tcp_port_secure>
+    
+    <!-- Interserver communication -->
+    <interserver_http_port>9009</interserver_http_port>
+    
+    <!-- Default database -->
+    <default_database>default</default_database>
+    
+    <!-- Paths -->
+    <path>/var/lib/clickhouse/</path>
+    <tmp_path>/var/lib/clickhouse/tmp/</tmp_path>
+    <user_files_path>/var/lib/clickhouse/user_files/</user_files_path>
+    
+    <!-- Users and profiles -->
+    <users_config>users.xml</users_config>
+    <default_profile>default</default_profile>
+    <default_database>default</default_database>
+    
+    <!-- Merge tree settings -->
+    <merge_tree>
+        <parts_to_delay_insert>150</parts_to_delay_insert>
+        <parts_to_throw_insert>300</parts_to_throw_insert>
+        <max_bytes_to_merge_at_max_space_in_pool>1000000000000</max_bytes_to_merge_at_max_space_in_pool>
+    </merge_tree>
+</clickhouse> 
